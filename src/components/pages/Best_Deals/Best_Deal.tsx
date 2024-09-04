@@ -1,9 +1,12 @@
+import Image from "next/image";
 import React from "react";
 
 const Best_Deal = () => {
   return (
     <div>
-      <h2 className="text-center">Best Deals At MarketMingle</h2>
+      <h2 className="text-center text-2xl font-semibold">
+        Best Deals At MarketMingle
+      </h2>
       <div className="container mx-auto py-9 md:py-12 px-4 md:px-6">
         <div className="flex items-strech justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
           <div className="flex flex-col md:flex-row items-strech justify-between bg-gray-200 dark:bg-gray-800 py-6 px-6 md:py-12 lg:px-12 md:w-8/12 lg:w-7/12 xl:w-8/12 2xl:w-9/12">
@@ -52,10 +55,11 @@ const Best_Deal = () => {
               </p>
             </div>
             <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
-              <img
-                src="https://i.ibb.co/J2BtZdg/Rectangle-56-1.png"
-                alt=""
-                className=""
+              <Image
+                src={"/bagimg.png"}
+                width={200}
+                height={100}
+                alt="bag image"
               />
             </div>
           </div>

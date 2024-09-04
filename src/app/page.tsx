@@ -1,8 +1,9 @@
-import Navbar from "@/components/Navbar";
-import NavbarSlide from "../components/Navbar_Slide";
+import Navbar from "@/components/Navbars/Navbar";
+import NavbarSlide from "../components/Navbars/Navbar_Slide";
 import Trending_Product from "@/components/pages/Trending_Product";
-import Hero from "@/components/pages/Hero";
-import Best_Deal from "@/components/pages/Best_Deal";
+import Hero from "@/components/pages/Hero/Hero";
+import Best_Deal from "@/components/pages/Best_Deals/Best_Deal";
+import ShopByCategory from "@/components/pages/ShopByCategory/ShopByCategory";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Best_Deal />
+      <ShopByCategory />
       <Trending_Product />
     </>
   );
