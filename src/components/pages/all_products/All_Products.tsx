@@ -1,23 +1,26 @@
 import React from "react";
 import SearchBar from "./SearchBar";
-import Banner from "../Banner";
 import axios from "axios";
 import { productType } from "@/types/types";
 
 const All_Products = async () => {
-  const products = await axios.get(
-    "http://localhost:8000/api/v1/product/getProduct"
-  );
-  const allProducts: productType[] | [] = products.data.allProducts;
-  console.log(typeof allProducts);
+  let allProducts: productType[] | [] = [];
+  try {
+    const products = await axios.get(
+      `${process.env.BACKEND_BASE_URL}/api/v1/product/getProduct`
+    );
+    allProducts = products.data.allProducts;
+  } catch (error: any) {
+    console.log(error.message);
+  }
   return (
-    <div>
+    <div className="bg-slate-200">
       <SearchBar />
-      <Banner />
-      <div className="main flex">
+      {/* <Banner /> */}
+      <div className="main flex bg-slate-200 ">
         {/* Starting Products */}
-        <div className="wrapper bg-slate-400 h-40 flex"></div>
-        <div className="font-[sans-serif] bg-gray-100">
+        <div className="wrapper  h-40 flex"></div>
+        <div className="font-[sans-serif] ">
           <div className="p-4 mx-auto lg:max-w-7xl sm:max-w-full">
             <h2 className="text-4xl font-extrabold text-gray-800 mb-12">
               Premium Sneakers
@@ -54,14 +57,22 @@ const All_Products = async () => {
 
                     <div>
                       <h3 className="text-lg font-extrabold text-gray-800">
-                        {singleProduct.title}
+                        {singleProduct.title.slice(0, 30)}...
                       </h3>
                       <p className="text-gray-600 text-sm mt-2">
-                        {singleProduct.description}
+                        {singleProduct.description.slice(0, 70)}...
                       </p>
-                      <h4 className="text-lg text-gray-800 font-bold mt-4">
-                        {String(singleProduct.price)}
-                      </h4>
+                      <div className="price flex gap-3">
+                        <h4 className="text-lg text-gray-800 font-bold mt-4">
+                          {String(singleProduct.price)}
+                        </h4>
+                        <h4 className="text-lg text-gray-800 font-bold mt-4">
+                          {String(singleProduct.price)}
+                        </h4>
+                      </div>
+                      <button className="bg-blue-600 text-white p-2 m-auto">
+                        Add To Cart
+                      </button>
                     </div>
                   </div>
                 );

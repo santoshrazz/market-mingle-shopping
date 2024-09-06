@@ -9,7 +9,7 @@ import All_Products from "@/components/pages/all_products/All_Products";
 export default function Home() {
   return (
     <>
-      <All_Products />
+      {/* <All_Products /> */}
       {/* <NavbarSlide />
       <Navbar />
       <Hero />
