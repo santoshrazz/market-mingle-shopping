@@ -1,7 +1,19 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { ChangeEvent, useState, KeyboardEvent } from "react";
 
 const SearchBar = () => {
+  const [search, setSearch] = useState("");
+  const navigator = useRouter();
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+  const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      navigator.push(`/allproducts/${search}`);
+    }
+  };
   return (
     <div className="w-full bg-slate-200 p-4">
       <div className="input flex justify-center items-center">
@@ -9,6 +21,9 @@ const SearchBar = () => {
           type="text"
           placeholder="Type here"
           className="input input-bordered input-primary w-full max-w-xs px-4 py-2 rounded-md hover:border-none hover:outline-none focus:outline-none"
+          onChange={handleOnChange}
+          value={search}
+          onKeyDown={handleOnKeyDown}
         />
         {/* <Image
           src={"/search.png"}
