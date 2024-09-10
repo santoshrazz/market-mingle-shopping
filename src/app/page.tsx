@@ -9,13 +9,11 @@ import All_Products from "@/components/pages/all_products/All_Products";
 export default function Home() {
   return (
     <>
-      {/* <All_Products /> */}
-      {/* <NavbarSlide />
-      <Navbar />
+      <NavbarSlide />
       <Hero />
       <Best_Deal />
       <ShopByCategory />
-      <Trending_Product /> */}
+      <Trending_Product />
     </>
   );
 }

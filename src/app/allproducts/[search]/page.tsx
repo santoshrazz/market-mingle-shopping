@@ -10,7 +10,6 @@ const page = async ({ params }: { params: { search: String } }) => {
       `${process.env.BACKEND_BASE_URL}/api/v1/product/searchProduct?search=${params.search}`
     );
     allProducts = products.data.products;
-    console.log(allProducts);
   } catch (error: any) {
     console.log(error.message);
   }
